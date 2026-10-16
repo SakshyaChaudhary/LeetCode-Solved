@@ -14,8 +14,11 @@ public:
         if(head==NULL){
             return head;
         }
+        ListNode* del=NULL;
         while(head->val==value){
+            del=head;
             head=head->next;
+            delete del;
             if(head==NULL){
                 return head;
             }
@@ -25,8 +28,10 @@ public:
         ListNode* nextNode=head->next;
         while(nextNode!=NULL){
             if(nextNode->val==value){
+                del=nextNode;
                 Curr->next=nextNode->next;
                 nextNode=nextNode->next;
+                delete del;
             }
             else{
                 Curr=nextNode;
