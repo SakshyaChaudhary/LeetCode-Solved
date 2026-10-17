@@ -28,7 +28,7 @@ public:
             tempA=tempA->next;
             tempB=tempB->next;
         }
-        newHead=Reverse(newHead);
+        Reverse(newHead);
         return maxSum;
     }
     ListNode* Reverse(ListNode* head){
