@@ -35,7 +35,9 @@ public:
                 curr=curr->next;
             }
         }
-        return Dummy->next;
+        head=Dummy->next;
+        delete Dummy;
+        return head;
         
         
     }
