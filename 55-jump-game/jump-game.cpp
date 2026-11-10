@@ -1,16 +1,19 @@
 class Solution {
 public:
     bool canJump(vector<int>& nums) {
-        if(nums.size()==1) return true;
-        if(nums[0]==0) return false;
         int maxReach=0;
         for(int i=0;i<nums.size();i++){
-            if(nums[i]==0 && maxReach==i && i!=nums.size()-1){
+            // Check if current index is reachable
+            if(i>maxReach){
                 return false;
             }
-            maxReach=max(maxReach,nums[i]+i);
+            //Update max
+            maxReach=max(maxReach,i+nums[i]);
+            // can reach the last index
+            if(maxReach>=nums.size()-1){
+                return true;
+            }
         }
-        return true;
-        
+        return true;        
     }
 };
